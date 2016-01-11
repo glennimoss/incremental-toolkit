@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Mine Defence
 // @namespace    https://github.com/glennimoss/incremental-toolkit/mine-defense
-// @version      0.01
+// @version      0.02
 // @author       gim
 // @description  Automation for http://scholtek.com/minedefense
 // @match        http://scholtek.com/minedefense
@@ -14,6 +14,14 @@ var gim = {};
 'use strict';
 
 console.log("Installing Mine Defense automation...");
+
+
+var _cost_re = /(\S+) Gold/
+  , _sandshrew_sell_thresh = parse_num('1.5Sp')
+  , _hired_re = /(\S+) hired/
+  , _sandshrew_alch_rate_re = /(\S+) Sandshrew/
+  ;
+
 var clicker = setInterval(function () {
   MD.dig(250, 250);
 
