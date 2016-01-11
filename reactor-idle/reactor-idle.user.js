@@ -1,7 +1,6 @@
 // ==UserScript==
 // @name         Reactor Idle
-// @namespace    https://github.com/glennimoss/incremental-toolkit/reactor-idle
-// @version      0.1
+// @namespace    https://github.com/glennimoss/incremental-toolkit
 // @author       gim
 // @description  Automation for reactoridle.com
 // @match        http://reactoridle.com/
