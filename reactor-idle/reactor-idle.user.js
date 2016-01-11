@@ -13,11 +13,6 @@
 
 console.log("Installing Reactor Idle automation...");
 
-var clicker = setInterval(function () {
-  console.log("Selling...");
-  $("#sellPowerButton").click();
-}, 60000);
-
 // Excessively complicated method to get a handle of the global game object.
 window.define("base/ConfirmedTimestamp", function () {
   var t = 0;
@@ -54,16 +49,22 @@ window.define("base/ConfirmedTimestamp", function () {
   }
 });
 
+var seller;
+
 console.log("Requiring something from the game...");
 require(['game/actions/SellPowerManuallyAction'],
   function (spm) {
     console.log("Got our required object:", spm);
-    var seller = setInterval(function () {
-      console.log("Power:", abbrev_num(gameobj.game.reactors.metropolis.getPower()));
+    seller = setInterval(function () {
+      for (let name in gameobj.game.reactors) {
+        let r = gameobj.game.reactors[name]
+          , filled = r.getPower() / r.getMaxPower()
+          ;
+        if (filled > 0.9) {
+          console.log("Reactor", name, "at", (filled*100).toFixed(1) + "%, selling...");
+          (new spm(gameobj.game.reactors.metropolis)).sell();
+        }
+      }
     }, 5000);
-    /*
-    var seller = new spm(gameobj.game.reactors.metropolis);
-    seller.sell();
-    */
   }
 );
