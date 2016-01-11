@@ -3,6 +3,7 @@
 // @namespace    https://github.com/glennimoss/incremental-toolkit
 // @author       gim
 // @description  Automation for reactoridle.com
+// @version      0.01
 // @match        http://reactoridle.com/
 // @grant        none
 // @require      https://raw.githubusercontent.com/glennimoss/incremental-toolkit/master/lib/nums.js
@@ -11,7 +12,7 @@
 (function () {
   'use strict';
 
-  console.log("Installing Reactor Idle automation...");
+  console.log("Installing Reactor Idle automation... (Testing for update changes)");
 
   // Excessively complicated method to get a handle of the global game object.
   window.define("base/ConfirmedTimestamp", function () {
