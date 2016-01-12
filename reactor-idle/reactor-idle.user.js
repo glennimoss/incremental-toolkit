@@ -3,9 +3,12 @@
 // @namespace    https://github.com/glennimoss/incremental-toolkit
 // @author       gim
 // @description  Automation for reactoridle.com
-// @version      0.02
+// @version      0.03
 // @match        http://reactoridle.com/
 // @grant        none
+// @grant        GM_deleteValue
+// @grant        GM_getValue
+// @grant        GM_setValue
 // @require      https://raw.githubusercontent.com/glennimoss/incremental-toolkit/master/lib/nums.js
 // @require      https://raw.githubusercontent.com/glennimoss/incremental-toolkit/master/lib/gistbin.js
 // ==/UserScript==
