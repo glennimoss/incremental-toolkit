@@ -3,7 +3,7 @@
 // @namespace    https://github.com/glennimoss/incremental-toolkit
 // @author       gim
 // @description  Automation for reactoridle.com
-// @version      0.03
+// @version      0.04
 // @match        http://reactoridle.com/
 // @grant        none
 // @grant        GM_deleteValue
@@ -80,7 +80,7 @@ var bin = new GistBin("reactor-idle")
       bin.save("reactor-idle.sav", gameobj.getSaveHandler().getSaveData()).then(function () {
         console.log("Saved game.");
       });
-    }, 300000)  // every five mins
+    }, 900000)  // every fifteen mins
   ;
 
 })();
