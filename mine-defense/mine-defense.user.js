@@ -1,12 +1,16 @@
 // ==UserScript==
 // @name         Mine Defence
 // @namespace    https://github.com/glennimoss/incremental-toolkit/mine-defense
-// @version      0.02
+// @version      0.03
 // @author       gim
 // @description  Automation for http://scholtek.com/minedefense
 // @match        http://scholtek.com/minedefense
 // @grant        none
+// @grant        GM_deleteValue
+// @grant        GM_getValue
+// @grant        GM_setValue
 // @require      https://raw.githubusercontent.com/glennimoss/incremental-toolkit/master/lib/nums.js
+// @require      https://raw.githubusercontent.com/glennimoss/incremental-toolkit/master/lib/gistbin.js
 // ==/UserScript==
 /* jshint -W097 */
 var gim = {};
@@ -14,7 +18,6 @@ var gim = {};
 'use strict';
 
 console.log("Installing Mine Defense automation...");
-
 
 var _cost_re = /(\S+) Gold/
   , _sandshrew_sell_thresh = parse_num('1.5Sp')
@@ -52,5 +55,13 @@ gim.clear = function () {
   clearInterval(clicker);
   clearInterval(buyer);
 }
+
+var bin = new GistBin("mine-defense")
+  , saver = setInterval(function () {
+      bin.save("mine-defense.sav", getSaveObject()).then(function () {
+        console.log("Saved game.");
+      });
+    }, 900000)  // every fifteen mins
+  ;
 
 })();
